@@ -208,8 +208,12 @@ If you have suggestions or feature requests, feel free to contribute or contact 
 
 ## Contributors
 
-<a href="https://github.com/TheMomentumAI/notetaker/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=TheMomentumAI/notetaker" />
+<a href="https://github.com/the-momentum/notetaker/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=the-momentum/notetaker" />
 </a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+*Built with ❤️ by [Momentum](https://themomentum.ai)*
