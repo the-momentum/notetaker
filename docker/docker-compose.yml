@@ -1,0 +1,66 @@
+services:
+  notetaker-ai-api:
+    container_name: notetaker-ai-api
+    image: notetaker-ai:latest
+    working_dir: /app
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    env_file:
+      - ../.env
+    volumes:
+      - ../:/app
+    ports:
+      - 8001:8001
+    depends_on:
+      - ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/api/v1/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+    profiles:
+      - default
+      - demo
+
+  notetaker-demo:
+    container_name: notetaker-demo
+    image: notetaker-demo:latest
+    working_dir: /app
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.demo
+    env_file:
+      - ../demo/.env.demo
+    ports:
+      - 7860:7860
+    depends_on:
+      notetaker-ai-api:
+        condition: service_healthy
+    profiles:
+      - demo
+
+  # Ollama setup
+  ollama:
+    container_name: ollama_server
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    profiles:
+      - demo
+      - default
