@@ -206,4 +206,10 @@ We are actively working to enhance Notetaker AI with new features and capabiliti
 
 If you have suggestions or feature requests, feel free to contribute or contact us.
 
+## Contributors
+
+<a href="https://github.com/TheMomentumAI/notetaker/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=TheMomentumAI/notetaker" />
+</a>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
