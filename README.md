@@ -25,6 +25,8 @@
 
 **Notetaker AI** transforms how professionals handle meetings, interviews, and consultations with advanced audio-to-text capabilities. It combines precise transcription with intelligent summarization to create concise, structured notes that save time and enhance documentation accuracy.
 
+![Notetaker workflow](https://github.com/user-attachments/assets/86774f6d-a39f-42cd-b024-2a2158d36873)
+
 ### ✨ Key Features
 
 - **🎙️ Smart Transcription**: Convert audio to text with exceptional accuracy, including optional speaker diarization and time alignment
@@ -32,6 +34,8 @@
 - **⚙️ Flexible Deployment**: Run as an API-only service or with an intuitive Gradio UI for interactive use
 - **🚄 GPU Acceleration**: Leverage GPU hardware for faster processing of large audio files
 - **🔧 Customizable**: Configure to your specific requirements with extensive environment variables
+
+<video src="https://github.com/user-attachments/assets/52b74add-9733-442c-a083-830bfba9d900" controls="controls"></video>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
