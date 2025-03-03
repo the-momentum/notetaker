@@ -153,16 +153,16 @@ For consistent deployment across environments, use our Docker setup.
 
 ```sh
 # Build the Docker images
-make docker-build
+just docker-build
 
 # Rebuild without using cache
-make docker-rebuild
+just docker-rebuild
 
 # Run the API only
-make docker-up
+just docker-up
 
 # Run API with Gradio demo
-make docker-demo
+just docker-demo
 ```
 
 ### Access Points
