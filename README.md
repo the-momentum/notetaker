@@ -1,212 +1,192 @@
 <a name="readme-top"></a>
 
-<div align=center>
-  <img src="https://cdn.prod.website-files.com/66a1237564b8afdc9767dd3d/66df7b326efdddf8c1af9dbb_Momentum%20Logo.svg" height="64">
+<div align="center">
+  <img src="https://cdn.prod.website-files.com/66a1237564b8afdc9767dd3d/66df7b326efdddf8c1af9dbb_Momentum%20Logo.svg" height="80">
+  <h1>Notetaker AI</h1>
+  <p><strong>Intelligent Transcription & Summarization for Professionals</strong></p>
+
+  [![Contact us](https://img.shields.io/badge/Contact%20us-AFF476.svg?style=for-the-badge&logo=mail&logoColor=black)](mailto:hello@themomentum.ai?subject=Notetaker%20AI%20Inquiry)
+  [![Visit Momentum](https://img.shields.io/badge/Visit%20Momentum-1f6ff9.svg?style=for-the-badge&logo=safari&logoColor=white)](https://themomentum.ai)
+  [![MIT License](https://img.shields.io/badge/License-MIT-636f5a.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
 </div>
-<h1 align=center>Notetaker AI</h1>
-<div align=center>
-  <a href=mailto:hello@themomentum.ai?subject=Notetaker%20AI%20Inquiry>
-    <img src=https://img.shields.io/badge/Contact%20us-AFF476.svg alt="Contact us">
-  </a>
-    <a href="https://themomentum.ai">
-    <img src=https://img.shields.io/badge/Check%20Momentum-1f6ff9.svg alt="Check">
-  </a>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-636f5a.svg?longCache=true" alt="MIT License">
-  </a>
-</div>
-<br>
 
----
+## 📋 Table of Contents
 
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#getting-started">Getting Started</a></li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#demo">Demo</a></li>
-    <li><a href="#docker-setup">Docker Setup</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-  </ol>
-</details>
+- [🔍 About](#about-the-project)
+- [🚀 Getting Started](#getting-started)
+- [📝 Usage](#usage)
+- [🖥️ Demo](#demo)
+- [🐳 Docker Setup](#docker-setup)
+- [🗺️ Roadmap](#roadmap)
+- [👥 Contributors](#contributors)
+- [📄 License](#license)
 
----
+## 🔍 About The Project
 
-## About The Project
+**Notetaker AI** transforms how professionals handle meetings, interviews, and consultations with advanced audio-to-text capabilities. It combines precise transcription with intelligent summarization to create concise, structured notes that save time and enhance documentation accuracy.
 
-**Notetaker AI** is an AI-powered transcription and summarization tool designed for professionals. It supports advanced audio-to-text transcription with speaker diarization and alignment, along with flexible summarization in various formats.
+### ✨ Key Features
 
-### Features
-
-- Accurate audio transcription with optional speaker diarization and alignment.
-- Summarization in multiple formats (Text, SOAP, PKI HL7 CDA).
-- Flexible configuration to run API-only or API with Gradio UI demo.
-- GPU support for faster model inference.
+- **🎙️ Smart Transcription**: Convert audio to text with exceptional accuracy, including optional speaker diarization and time alignment
+- **📊 Multiple Summary Formats**: Generate summaries in various formats (Text, SOAP, PKI HL7 CDA) to fit different professional needs
+- **⚙️ Flexible Deployment**: Run as an API-only service or with an intuitive Gradio UI for interactive use
+- **🚄 GPU Acceleration**: Leverage GPU hardware for faster processing of large audio files
+- **🔧 Customizable**: Configure to your specific requirements with extensive environment variables
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
+## 🚀 Getting Started
 
-## Getting Started
-
-To get a local copy up and running, follow these steps.
+Follow these steps to set up Notetaker AI in your environment.
 
 ### Prerequisites
 
-- Python 3.12+
-- Poetry ([Installation Guide](https://python-poetry.org/docs/#installation))
-- FFmpeg
-- CUDA Toolkit (12.2+ recommended) *(required only if using GPU for model inference)*
-- Access to gated pyannote models on Hugging Face:
+- **Python**: 3.12 or higher
+- **Poetry**: For dependency management ([Installation Guide](https://python-poetry.org/docs/#installation))
+- **FFmpeg**: Required for audio processing
+- **CUDA Toolkit**: 12.2+ recommended (only if using GPU acceleration)
+- **Hugging Face Access**: You'll need access to these gated models:
   - [Speaker Diarization](https://huggingface.co/pyannote/speaker-diarization-3.1)
   - [Segmentation](https://huggingface.co/pyannote/segmentation-3.0)
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository**:
    ```sh
    git clone https://github.com/the-momentum/notetaker
    cd notetaker
    ```
 
-2. Install core dependencies: To install only the dependencies required for the core API (excluding demo and development dependencies), use:
-    ```sh
-    poetry install --without demo --without dev
-    ```
+2. **Install dependencies**:
+   ```sh
+   # For API only (recommended for production)
+   poetry install --without demo --without dev
 
-## Usage
+   # With demo interface (for testing and demonstration)
+   poetry install --with demo --without dev
+   ```
 
-1. Set up environment variables:
-    Copy the provided `.env.example` file to `.env`:
-    ```sh
-    cp .env.example .env
-    ```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-    Update the .env file with your configuration values.
+## 📝 Usage
 
-2. Run the application:
-    Use the provided run.sh script to start the API:
-    ```sh
-    ./run.sh
-    ```
-    By default, the application will run on http://localhost:8001.
+### Configuration
 
-3. Access API documentation:
+1. **Set up environment variables**:
+   ```sh
+   cp .env.example .env
+   ```
+   Edit the `.env` file with your specific configuration.
 
-    Swagger UI: Available at http://localhost:8001/docs
+2. **Start the application**:
+   ```sh
+   ./run.sh
+   ```
+   The API will be available at http://localhost:8001 by default.
 
-    ReDoc: Available at http://localhost:8001/redoc
+3. **Access the API documentation**:
+   - Swagger UI: http://localhost:8001/docs
+   - ReDoc: http://localhost:8001/redoc
 
-These interfaces provide detailed documentation of all available endpoints, request formats, and responses.
+### Environment Variables
 
-### Environment variables
-| Variable                 | Example Value                                                        | Description                                                                                     |
-|--------------------------|----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
-| PROJECT_NAME             | Notetaker AI                                                     | The name of the project, used for logging and display purposes.                                |
-| BACKEND_CORS_ORIGINS     | [`http://localhost:8000`, `https://localhost:8000`, `http://localhost`, `https://localhost`] | A list of allowed origins for CORS (Cross-Origin Resource Sharing). Adjust for your front-end. |
-| HOST                     | 0.0.0.0                                                         | The host address where the API will be available. Use "0.0.0.0" to listen on all network interfaces. |
-| PORT                     | 8001                                                               | The port on which the API will run.                                                            |
-| OLLAMA_URL               | `http://localhost:11434`                                           | The base URL for the Ollama server. Used for LLM (Language Model) requests when `USE_LOCAL_MODELS` is set to `True`. Change to `http://ollama:11434` if using Docker setup.                 |
-| LLM_MODEL                | llama3.2                                                        | The name of the LLM model to be used.                                                          |
-| USE_LOCAL_MODELS         | True                                                               | Whether to use local models for transcription and summarization.                               |
-| WHISPER_MODEL            | turbo                                                           | The model type for Whisper (e.g., "base", "large", "turbo").  Refer to [available models](https://github.com/openai/whisper?tab=readme-ov-file#available-models-and-languages).                                 |
-| WHISPER_DEVICE           | cpu                                                             | The device for running Whisper (e.g., "cpu", "cuda").                                           |
-| WHISPER_COMPUTE_TYPE     | int8                                                            | The compute type for Whisper, affecting performance and precision (e.g., "int8", "float32"). Use "int8" if low GPU memory.  |
-| WHISPER_BATCH_SIZE       | 16                                                           |  The batch size for Whisper processing. Reduce the number if low on GPU memory.  |
-| HF_API_KEY               | `hf_...`                                                     | The API key for accessing Hugging Face models and resources.                                   |
-| OPENAI_API_KEY           | `sk-proj-...`                                                 | The API key for OpenAI's services, used for LLM when `USE_LOCAL_MODELS` is set to `False`.                             |
+| Variable | Description | Example Value |
+|----------|-------------|---------------|
+| PROJECT_NAME | Name used for logging and display | `Notetaker AI` |
+| BACKEND_CORS_ORIGINS | Allowed CORS origins | `["http://localhost:8000"]` |
+| HOST | Host address for API availability | `0.0.0.0` |
+| PORT | Port for the API server | `8001` |
+| OLLAMA_URL | Base URL for Ollama server | `http://localhost:11434` |
+| LLM_MODEL | LLM model name | `llama3.2` |
+| USE_LOCAL_MODELS | Whether to use local models | `True` |
+| WHISPER_MODEL | Whisper model type | `turbo` |
+| WHISPER_DEVICE | Device for running Whisper | `cpu` or `cuda` |
+| WHISPER_COMPUTE_TYPE | Compute type for Whisper | `int8` |
+| WHISPER_BATCH_SIZE | Batch size for processing | `16` |
+| HF_API_KEY | Hugging Face API key | `hf_...` |
+| OPENAI_API_KEY | OpenAI API key | `sk-proj-...` |
 
-Refer to the Demo section for instructions on running the application with the Gradio demo interface.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Demo
+## 🖥️ Demo
 
-The Gradio demo provides an interactive interface to test Notetaker AI's capabilities, including transcription and summarization, directly in your browser.
-
-### Prerequisites
-
-To run the demo, ensure the following dependencies are installed in addition to the core requirements:
-
-```sh
-poetry install --with demo --without dev
-```
+The interactive Gradio demo provides a user-friendly interface to experience Notetaker AI's capabilities without writing code.
 
 ### Running the Demo
 
-Update `demo/.env.demo` with the appropriate API_BASE_URL (e.g., http://localhost:8001).
+1. **Install demo dependencies** (if not already done):
+   ```sh
+   poetry install --with demo --without dev
+   ```
 
-#### Start the Demo
+2. **Configure the demo**:
+   Update `demo/.env.demo` with your API base URL.
 
-To run both the API and Gradio demo together:
-```sh
-./run.sh --demo
-```
+3. **Launch the integrated demo**:
+   ```sh
+   ./run.sh --demo
+   ```
+   This starts both the API and Gradio interface.
 
-By default, the demo will run on http://localhost:7860.
+4. **Or run the demo separately** (if API is already running):
+   ```sh
+   poetry run python demo/ui.py
+   ```
 
-#### Standalone Demo
-If the API is already running, you can start the Gradio demo separately:
-```sh
-poetry run python demo/ui.py
-```
+The demo will be available at http://localhost:7860.
 
+### Demo Features
 
-### Features of the Demo
-
-- Upload or record audio directly in the interface.
-- Configure options for speaker diarization and alignment.
-- Select desired summary format (Text, SOAP, PKI HL7 CDA).
-- View real-time transcription and summary outputs.
-- Download the generated summary as a JSON file.
+- **📁 Upload or Record**: Submit audio files or record directly in your browser
+- **⚙️ Configure Options**: Set parameters for transcription and summarization
+- **📊 Format Selection**: Choose between different summary formats
+- **⏱️ Real-time Processing**: Watch as your audio is transcribed and summarized
+- **💾 Download Results**: Save output as JSON for further use
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Docker Setup
+## 🐳 Docker Setup
 
-The project supports a Dockerized setup for ease of deployment. Using the provided docker-compose configuration, you can quickly run the API and the Gradio demo.
+For consistent deployment across environments, use our Docker setup.
 
-### Running the Services
+### Quick Commands
 
-You can use the provided Makefile for convenience:
-- Build the Docker Images:
 ```sh
+# Build the Docker images
 make docker-build
-```
-- Rebuild without cache:
-```sh
+
+# Rebuild without using cache
 make docker-rebuild
-```
-Run the API:
-```sh
+
+# Run the API only
 make docker-up
-```
-Run the API with the Gradio Demo:
-```sh
+
+# Run API with Gradio demo
 make docker-demo
 ```
 
-### Notes
+### Access Points
 
-  By default, the API will be available at http://localhost:8001, and its documentation can be accessed at:
-      Swagger UI: http://localhost:8001/docs
-      ReDoc: http://localhost:8001/redoc
-  The Gradio demo (if enabled) will run on http://localhost:7860.
+- **API**: http://localhost:8001
+- **API Documentation**:
+  - Swagger UI: http://localhost:8001/docs
+  - ReDoc: http://localhost:8001/redoc
+- **Gradio Demo** (if enabled): http://localhost:7860
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Roadmap
+## 🗺️ Roadmap
 
-We are actively working to enhance Notetaker AI with new features and capabilities. Here's what's planned for the future:
+We're continuously enhancing Notetaker AI with new capabilities. Here's what's on the horizon:
 
-- [] Integration with Whisper via OpenAI API
-- [] Support for More LLM Providers
-- [] Introduce more note formats and refine the current options for better customization and usability
+- [ ] **OpenAI API Integration**: Direct connection to Whisper via OpenAI API
+- [ ] **Expanded LLM Support**: Integration with additional LLM providers
+- [ ] **Enhanced Note Formats**: More specialized formats and improved customization options
+- [ ] **Performance Optimizations**: Faster processing for large audio files
 
-If you have suggestions or feature requests, feel free to contribute or contact us.
+Have a suggestion? We'd love to hear from you! Contact us or contribute directly.
 
-## Contributors
+## 👥 Contributors
 
 <a href="https://github.com/the-momentum/notetaker/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=the-momentum/notetaker" />
@@ -214,6 +194,12 @@ If you have suggestions or feature requests, feel free to contribute or contact 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
 ---
 
-*Built with ❤️ by [Momentum](https://themomentum.ai)*
+<div align="center">
+  <p><em>Built with ❤️ by <a href="https://themomentum.ai">Momentum</a> • Turning conversations into structured knowledge</em></p>
+</div>
