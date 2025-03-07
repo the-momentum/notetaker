@@ -6,8 +6,8 @@ import gradio as gr
 import requests
 from dotenv import load_dotenv
 
-load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
-API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000/api/v1")
+load_dotenv(os.path.join(os.path.dirname(__file__), ".env.demo"))
+API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8001/api/v1")
 
 
 def format_time(seconds: float) -> str:
