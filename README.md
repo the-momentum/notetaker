@@ -31,7 +31,8 @@
 
 - **🎙️ Smart Transcription**: Convert audio to text with exceptional accuracy, including optional speaker diarization and time alignment
 - **📊 Multiple Summary Formats**: Generate summaries in various formats (Text, SOAP, PKI HL7 CDA) to fit different professional needs
-- **⚙️ Flexible Deployment**: Run as an API-only service or with an intuitive Gradio UI for interactive use
+- **⚙️ Flexible Deployment**: Can be deployed fully locally, using local AI models for full data control, or using wavaliable external integrations
+- **⚙️ Multiple access points**: Run as an API-only service or with an intuitive Gradio UI for interactive use
 - **🚄 GPU Acceleration**: Leverage GPU hardware for faster processing of large audio files
 - **🔧 Customizable**: Configure to your specific requirements with extensive environment variables
 
