@@ -73,9 +73,14 @@ class SummarizationService:
         }
 
         if format in structured_models:
-            sllm = self.llm.as_structured_llm(structured_models[format])
-            response = sllm.complete(prompt)
-
+            try:
+                sllm = self.llm.as_structured_llm(structured_models[format])
+                response = sllm.complete(prompt)
+            except Exception:
+                return (
+                    "The current model is too weak to handle this format. "
+                    "Please change the format or the model."
+                )
             if response and response.raw:
                 structured_data = structured_models[format].model_dump(response.raw)
                 parsed_data = self._replace_empty_strings_with_none(structured_data)
