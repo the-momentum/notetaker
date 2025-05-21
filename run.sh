@@ -3,6 +3,10 @@
 
 set -e
 
+if [ -f .env ]; then
+    export $(grep -E '^(USE_LOCAL_MODELS|HOST|PORT)=' .env)
+fi
+
 if [ "$USE_LOCAL_MODELS" = "True" ]; then
     poetry run python -u scripts/pull_local_model.py
 else
