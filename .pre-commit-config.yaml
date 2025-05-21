@@ -11,10 +11,10 @@ repos:
           - --remove-duplicate-keys
           - --remove-unused-variables
   - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 24.4.2
+    rev: 25.1.0
     hooks:
       - id: black
-        language_version: python3.11
+        language_version: python3.12
   - repo: local
     hooks:
       - id: flake8
@@ -36,7 +36,7 @@ repos:
         language: system
         types: [python]
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
