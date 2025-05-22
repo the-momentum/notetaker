@@ -47,6 +47,10 @@ services:
     depends_on:
       notetaker-ai-api:
         condition: service_healthy
+    extra_hosts:
+      - "localhost:host-gateway"
+    volumes:
+      - ../demo:/app/demo
     profiles:
       - demo
 
