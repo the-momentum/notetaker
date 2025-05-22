@@ -5,3 +5,4 @@ class NoteFormat(str, Enum):
     TEXT = "Text"
     SOAP = "SOAP"
     PKI_HL7_CDA = "PKI HL7 CDA"
+    THERAPY_ASSESSMENT = "Therapy Assessment"

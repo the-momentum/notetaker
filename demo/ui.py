@@ -132,7 +132,7 @@ with gr.Blocks() as interface:
             align_checkbox = gr.Checkbox(label="Enable Alignment", value=False)
             diarization_checkbox = gr.Checkbox(label="Enable Diarization", value=False)
             summary_format_dropdown = gr.Dropdown(
-                choices=["Text", "SOAP", "PKI HL7 CDA"],
+                choices=["Text", "SOAP", "PKI HL7 CDA", "Therapy Assessment"],
                 label="Select Note Format",
             )
             submit_button = gr.Button("Submit")

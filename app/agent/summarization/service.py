@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from app.agent.prompts import prompt_manager
 from app.agent.utils.model_utils import get_llm
 from app.schemas.enums import NoteFormat
-from app.schemas.note import PKIHL7CDANote, SOAPNote
+from app.schemas.note import PKIHL7CDANote, SOAPNote, TherapyAssessmentNote
 from app.schemas.transcription import PlainTextTranscript
 from app.schemas.types import TranscriptInput
 from app.schemas.whisperx_types_wrappers import (
@@ -70,6 +70,7 @@ class SummarizationService:
         structured_models: dict[NoteFormat, Type[BaseModel]] = {
             NoteFormat.SOAP: SOAPNote,
             NoteFormat.PKI_HL7_CDA: PKIHL7CDANote,
+            NoteFormat.THERAPY_ASSESSMENT: TherapyAssessmentNote,
         }
 
         if format in structured_models:
@@ -81,6 +82,7 @@ class SummarizationService:
                     "The current model is too weak to handle this format. "
                     "Please change the format or the model."
                 )
+
             if response and response.raw:
                 structured_data = structured_models[format].model_dump(response.raw)
                 parsed_data = self._replace_empty_strings_with_none(structured_data)
