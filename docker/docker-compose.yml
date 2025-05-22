@@ -14,6 +14,8 @@ services:
       - 8001:8001
     depends_on:
       - ollama
+    extra_hosts:
+      - "localhost:host-gateway"
     deploy:
       resources:
         reservations:
