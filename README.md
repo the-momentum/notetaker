@@ -30,7 +30,12 @@
 ### ✨ Key Features
 
 - **🎙️ Smart Transcription**: Convert audio to text with exceptional accuracy, including optional speaker diarization and time alignment
-- **📊 Multiple Summary Formats**: Generate summaries in various formats (Text, SOAP, PKI HL7 CDA) to fit different professional needs
+- **📊 Multiple Summary Formats**: Generate summaries in various formats to fit different professional needs:
+  - **📝 Text** – Simple, readable plain-text format  
+  - **📋 SOAP** – Structured clinical format (Subjective, Objective, Assessment, Plan)  
+  - **🏥 PKI HL7 CDA** – Standards-compliant summary for healthcare interoperability  
+  - **🩺 Therapy Assessment** – Custom format for structured evaluation of therapist performance across key professional competencies  
+- **⏳ Long-form Audio Support**: Designed to handle recordings of over **1 hour**
 - **⚙️ Flexible Deployment**: Can be deployed fully locally, using local AI models for full data control, or using wavaliable external integrations
 - **⚙️ Multiple access points**: Run as an API-only service or with an intuitive Gradio UI for interactive use
 - **🚄 GPU Acceleration**: Leverage GPU hardware for faster processing of large audio files
@@ -110,6 +115,8 @@ Follow these steps to set up Notetaker AI in your environment.
 | WHISPER_BATCH_SIZE | Batch size for processing | `16` |
 | HF_API_KEY | Hugging Face API key | `hf_...` |
 | OPENAI_API_KEY | OpenAI API key | `sk-proj-...` |
+
+⚠️ **Note:** The transcription output length depends on the selected model's token limit. If the transcription is too long, it may be truncated or cause errors. Choose a model appropriate for the expected transcription length to ensure complete results.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
